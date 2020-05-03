@@ -2,20 +2,29 @@ ultimo = 10
 
 fila = list(range(1, ultimo + 1))
 
-while True:
-    print(f'\nExistem {len(fila)} clientes na fila')
-    print(f'Fila atual: {fila}')
-    print('Digite F para adicionar um cliente ao fim da fila,')
-    print('ou A para realizar o atendimento. S para sair.')
+# Estilização do terminal
+corHeader = '\033[95m'
+corOk = '\033[94m'
+corOkGreen = '\033[92m'
+corFail = '\033[91m'
+corWarning = '\033[93m'
+bold = '\033[1m'
+end = '\033[0m'
 
-    operacao = input('Operação (F, A ou S): ')
+while True:
+    print(f'\n{corHeader}Existem {len(fila)} clientes na fila{end}')
+    print(f'\n{corWarning}Fila atual: {fila}{end}')
+    print(f'\nDigite {bold}F{end} para adicionar um cliente ao fim da fila,')
+    print(f'ou {bold}A{end} para realizar o atendimento. {bold}S{end} para sair.\n')
+
+    operacao = input(f'{bold}Operação (F, A ou S): {end}')
 
     if operacao == 'A':
         if len(fila) > 0:
             atendido = fila.pop(0)  # Retira o ticket que foi atendido
-            print(f'Cliente {atendido} atendido')
+            print(f'{corOk}\nCliente {atendido} atendido{end}')
         else:
-            print('Fila vazia! Nínguem para atender.')
+            print(f'\n{corOkGreen}Fila vazia! Nínguem para atender.{end}')
 
     elif operacao == 'F':
         ultimo += 1  # Incrementa o ticket do novo cliente
@@ -25,4 +34,4 @@ while True:
         break
 
     else:
-        print('Operação inválida! Digite apenas F, A ou S!')
+        print(f'\n{corFail}Operação inválida! Digite apenas F, A ou S!{end}')
