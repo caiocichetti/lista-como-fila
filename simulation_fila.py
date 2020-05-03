@@ -17,7 +17,7 @@ while True:
     print(f'\nDigite {bold}F{end} para adicionar um cliente ao fim da fila,')
     print(f'ou {bold}A{end} para realizar o atendimento. {bold}S{end} para sair.\n')
 
-    operacao = input(f'{bold}Operação (F, A ou S): {end}')
+    operacao = input(f'{bold}Operação (F, A ou S):{end}')
 
     if operacao == 'A':
         if len(fila) > 0:
